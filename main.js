@@ -27,20 +27,24 @@ function roundPlay(playerSelection, computerSelection) {
     playerSelection = prompt('Elegí pibe: Rock, Paper o Scissors');
     playerSelection = playerSelection.toLowerCase()
 
-    if (playerSelection === computerSelection) {
-        alert('Todos ganan!, vuelve a jugar');
+    if (playerSelection === "rock" && computerSelection === "rock") {
+        console.log('Empate (rock)')
+    } else if (playerSelection === "paper" && computerSelection === "paper") {
+        console.log('Empate (paper)')
+    } else if (playerSelection === "scissors" && computerSelection === "scissors") {
+        console.log('Empate (scissors)')
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        alert('Perdiste :( (paper)')
+        console.log('Perdiste :( (paper)')
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        alert('Perdiste :( (scissors)')
+        console.log('Perdiste :( (scissors)')
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        alert('Perdiste :( (rock)')
+        console.log('Perdiste :( (rock)')
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        alert('Ganaste :D (scissors)')
+        console.log('Ganaste :D (scissors)')
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        alert('Ganaste :D (Rock)')
+        console.log('Ganaste :D (Rock)')
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        alert('Ganaste :D (Paper)')
+        console.log('Ganaste :D (Paper)')
     }
 
 }
@@ -53,4 +57,8 @@ Feel free to re-work your previous functions if you need to. Specifically, you m
 Feel free to create more “helper” functions if you think it would be useful.
  */
 
-roundPlay()
+function game() {
+    for(let i = 0; i < 3; i++) {
+        roundPlay();
+    }
+}
