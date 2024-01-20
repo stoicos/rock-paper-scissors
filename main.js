@@ -44,20 +44,3 @@ function roundPlay() {
         playerScore++
     }
 }
-
-function game() {
-    playerScore = 0;
-    computerScore = 0;
-
-    for(let i = 0; i < 5; i++) {
-        roundPlay();
-    }
-
-    if(playerScore > computerScore) {
-        console.log('Ganaste!! El resultado es: ',playerScore,computerScore)
-    } else if (playerScore < computerScore) {
-        console.log('Perdiste... El resultado es: ', playerScore, computerScore)
-    } else {
-        console.log('Empate! El resultado es: ', playerScore, computerScore)
-    }
-}
