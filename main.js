@@ -12,34 +12,35 @@ function getComputerChoice() {
 
 let playerScore = 0;
 let computerScore = 0;
+let result = "Empieza una ronda"
 
 function roundPlay(playerSelection) {
     let computerSelection = getComputerChoice();
 
     if (playerSelection === "rock" && computerSelection === "rock") {
-        console.log('Empate (rock)')
+        result = 'Empate (rock)';
     } else if (playerSelection === "paper" && computerSelection === "paper") {
-        console.log('Empate (paper)')
+        result = 'Empate (paper)';
     } else if (playerSelection === "scissors" && computerSelection === "scissors") {
-        console.log('Empate (scissors)')
+        result = 'Empate (scissors)';
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        console.log('Perdiste :( (paper)')
+        result = 'Perdiste :( (paper)';
         computerScore++;
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        console.log('Perdiste :( (scissors)')
+        result = 'Perdiste :( (scissors)';
         computerScore++;
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        console.log('Perdiste :( (rock)')
+        result = 'Perdiste :( (rock)';
         computerScore++;
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        console.log('Ganaste :D (scissors)')
-        playerScore++
+        result = 'Ganaste :D (scissors)';
+        playerScore++;
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        console.log('Ganaste :D (Rock)')
-        playerScore++
+        result = 'Ganaste :D (Rock)';
+        playerScore++;
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        console.log('Ganaste :D (Paper)')
-        playerScore++
+        result = 'Ganaste :D (Paper)';
+        playerScore++;
     }
 }
 
@@ -47,19 +48,27 @@ let btnRock = document.createElement("button");
 let btnPaper = document.createElement("button");
 let btnScissors = document.createElement("button");
 
-btnRock.textContent = "ROCK"
-btnPaper.textContent = "PAPER"
-btnScissors.textContent = "SCISSORS"
+btnRock.textContent = "ROCK";
+btnPaper.textContent = "PAPER";
+btnScissors.textContent = "SCISSORS";
 
-let body = document.querySelector("body")
-body.append(btnRock,btnPaper,btnScissors)
+let body = document.querySelector("body");
+body.append(btnRock,btnPaper,btnScissors);
+
+let results = document.createElement("div");
 
 btnRock.addEventListener('click', () => {
-    roundPlay('rock')
+    roundPlay('rock');
+    results.textContent = result;
+
 })
 btnPaper.addEventListener('click', () => {
-    roundPlay('paper')
+    roundPlay('paper');
+    results.textContent = result;
 })
 btnScissors.addEventListener('click', () => {
-    roundPlay('scissors')
+    roundPlay('scissors');
+    results.textContent = result;
 })
+
+body.append(results);
