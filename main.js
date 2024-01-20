@@ -13,10 +13,8 @@ function getComputerChoice() {
 let playerScore = 0;
 let computerScore = 0;
 
-function roundPlay() {
+function roundPlay(playerSelection) {
     let computerSelection = getComputerChoice();
-    let playerSelection = prompt('Elegí pibe: Rock, Paper o Scissors');
-    playerSelection = playerSelection.toLowerCase()
 
     if (playerSelection === "rock" && computerSelection === "rock") {
         console.log('Empate (rock)')
@@ -44,3 +42,24 @@ function roundPlay() {
         playerScore++
     }
 }
+
+let btnRock = document.createElement("button");
+let btnPaper = document.createElement("button");
+let btnScissors = document.createElement("button");
+
+btnRock.textContent = "ROCK"
+btnPaper.textContent = "PAPER"
+btnScissors.textContent = "SCISSORS"
+
+let body = document.querySelector("body")
+body.append(btnRock,btnPaper,btnScissors)
+
+btnRock.addEventListener('click', () => {
+    roundPlay('rock')
+})
+btnPaper.addEventListener('click', () => {
+    roundPlay('paper')
+})
+btnScissors.addEventListener('click', () => {
+    roundPlay('scissors')
+})
